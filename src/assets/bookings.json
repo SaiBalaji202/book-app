@@ -1,0 +1,17 @@
+[
+  {
+    "customer": {
+      "name": "string",
+      "email": "string",
+      "phone": "string"
+    },
+    "vehicle": {
+      "regNo": "string",
+      "brand": "string",
+      "model": "string",
+      "fuelType": "string"
+    },
+    "bookingDate": "",
+    "autoPicupAndDrop": true
+  }
+]

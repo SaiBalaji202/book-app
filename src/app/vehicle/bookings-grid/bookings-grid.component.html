@@ -1,0 +1,60 @@
+<div class="bookings-grid-container">
+  <h2 class="title">Available Bookings</h2>
+
+  <p *ngIf="!(bookings$ | async)?.length; else data" class="msg">
+    No Data Available!
+  </p>
+
+  <ng-template #data>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No.</th>
+          <th>Customer Name</th>
+          <th>Customer Phone</th>
+          <th>Customer Email</th>
+          <th>Vehicle Reg No</th>
+          <th>Brand</th>
+          <th>Model</th>
+          <th>Fuel Type</th>
+          <th>Booking Date</th>
+          <th>Auto Pickup and Drop</th>
+          <th>Delete Booking</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let booking of bookings$ | async; let i = index">
+          <td>{{ i + 1 }}.</td>
+          <td>{{ booking.customer.name | capitalize }}</td>
+          <td>{{ booking.customer.phone }}</td>
+          <td>{{ booking.customer.email }}</td>
+          <td>{{ booking.vehicle.regNo }}</td>
+          <td>{{ booking.vehicle.brand | capitalize }}</td>
+          <td>{{ booking.vehicle.model | capitalize }}</td>
+          <td>{{ booking.vehicle.fuelType | capitalize }}</td>
+          <td>{{ booking.bookingDate | date: "shortDate" }}</td>
+          <td>{{ booking.autoPicupAndDrop ? "Yes" : "No" }}</td>
+          <td
+            style="cursor: pointer; color: red"
+            (click)="onDelete(booking.bookingId)"
+          >
+            Delete
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </ng-template>
+</div>
+
+<!-- / Customer Name - Only allow characters
+// Customer Phone number - Only numbers characters (optional)
+// Customer Email - Email format (optional)
+// Vehicle registration number - Only allow Alphabets & numbers
+// Brand - Dropdown
+// Model - Dropdown
+// Fuel Type - radio button
+// Date, Time - date picker, time picker
+// Auto pickup & drop - checkbox
+
+// Except phone number & email - all fields are mandatory -->
