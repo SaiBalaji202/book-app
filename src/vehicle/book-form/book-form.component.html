@@ -1,0 +1,119 @@
+<div class="book-form-container">
+  <h2>Book Vehicle</h2>
+  <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+    <div formGroupName="customer">
+      <h3>Customer Details</h3>
+      <div class="form-group">
+        <label for="customer-name">Name</label>
+        <input
+          type="text"
+          id="customer-name"
+          formControlName="name"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <label for="customer-email">Email</label>
+        <input
+          type="email"
+          id="customer-email"
+          formControlName="email"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <label for="customer-phone">Phone</label>
+        <input
+          type="text"
+          id="customer-phone"
+          formControlName="phone"
+          class="form-control"
+        />
+      </div>
+    </div>
+
+    <div formGroupName="vehicle">
+      <h3>Vehicle Details</h3>
+      <div class="form-group">
+        <label for="vehicle-reg">Reg No</label>
+        <input
+          type="text"
+          id="vehicle-reg"
+          formControlName="regNo"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <label for="vehicle-brand">Brand</label>
+
+        <select
+          name="vehicle-brand"
+          id="vehicle-brand"
+          formControlName="brand"
+          (change)="onBrandChange($event.target.value)"
+        >
+          <option selected disabled [value]="null">--Select A Brand--</option>
+          <option *ngFor="let brand of brands$ | async" [value]="brand">
+            {{ brand | capitalize }}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="vehicle-model">Model</label>
+
+        <select name="vehicle-model" id="vehicle-model" formControlName="model">
+          <option selected disabled [value]="null">--Select A Model--</option>
+          <option *ngFor="let model of models$ | async" value="model">
+            {{ model | capitalize }}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="vehicle-fuel-type">Fuel Type</label>
+        <div *ngFor="let fuelType of fuelTypes">
+          <label>
+            <input
+              type="radio"
+              formControlName="fuelType"
+              [value]="fuelType"
+            />{{ fuelType | capitalize }}
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h3>Booking Details</h3>
+
+      <div class="form-group">
+        <label for="booking-date">Booking Date</label>
+        <input
+          type="date"
+          id="booking-date"
+          formControlName="bookingDate"
+          class="form-control"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="auto-pickup-drop">Auto Picup And Drop</label>
+        <input
+          type="checkbox"
+          id="auto-pickup-drop"
+          formControlName="autoPicupAndDrop"
+          class="form-control"
+        />
+      </div>
+    </div>
+
+    <span class="error-msg" *ngIf="!bookForm.valid && bookForm.touched"
+      >Invalid Data Detected!</span
+    >
+    <div class="controls">
+      <button routerLink="/" class="btn" type="button">Cancel</button>
+      <button class="btn btn-primary" type="submit">Submit</button>
+    </div>
+  </form>
+</div>

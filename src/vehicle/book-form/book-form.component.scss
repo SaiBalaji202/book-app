@@ -1,0 +1,78 @@
+.book-form-container {
+  margin-left: 1rem;
+}
+
+h2 {
+  margin-bottom: 1rem;
+  font-size: 1.75rem;
+  letter-spacing: 1px;
+}
+
+h3 {
+  font-size: 1.5rem;
+  letter-spacing: 0.6px;
+  margin: 0.8rem;
+}
+
+.form-group {
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+}
+
+label {
+  font-size: 1.4rem;
+  margin-right: 0.5rem;
+}
+
+input[type="radio"] {
+  margin: 0 1rem;
+}
+
+.form-group input.ng-invalid.ng-touched,
+.form-group select.ng-invalid.ng-touched {
+  border: 1px solid #e74c3c;
+}
+
+.error-msg {
+  display: inline-block;
+  font-size: 1.2rem;
+  color: #f00;
+  margin-bottom: 1rem;
+}
+
+.controls > *:not(:last-child) {
+  margin-right: 1rem;
+}
+
+.btn {
+  outline: none;
+  padding: 0.5rem;
+  border-radius: 4px;
+  font-size: 1.2rem;
+  background-color: #fff;
+  border: 1px solid #000;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+.btn-primary {
+  background-color: #000;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: lighten($color: #000, $amount: 4%);
+}
+
+.btn-primary:disabled {
+  background-color: lighten($color: #000, $amount: 10%);
+  cursor: not-allowed;
+}
+
+.btn-primary:disabled:hover {
+  box-shadow: none;
+}
+
+.btn:hover {
+  box-shadow: 0 8px 16px rgba($color: #000000, $alpha: 0.75);
+}

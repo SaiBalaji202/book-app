@@ -13,7 +13,6 @@ export class BookingService {
   fetchBookings(): Observable<Booking[]> {
     return of(this.bookings).pipe(
       map((bookings) => bookings.reverse()),
-      tap(() => console.log('Got Data')),
       delay(100),
       shareReplay()
     );

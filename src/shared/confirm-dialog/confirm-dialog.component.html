@@ -1,0 +1,14 @@
+<app-backdrop (clicked)="handleClick(ConfirmResult.CANCEL)"></app-backdrop>
+
+<div class="dialog-box">
+  <div class="content">
+    <p class="message">
+      <ng-content></ng-content>
+    </p>
+  </div>
+
+  <div class="actions">
+    <div class="button">{{ this.cancelLabel }}</div>
+    <div class="button">{{ this.confirmLabel }}</div>
+  </div>
+</div>
